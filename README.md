@@ -1,3 +1,2 @@
-![example workflow]
-
-(https://github.com/github/docs/actions/workflows/simple-proj.yml/badge.svg)
+[![CI]
+(https://github.com/sachinthapa/learning_gaction/actions/workflows/github-actions-demo.yml/badge.svg)](https://github.com/sachinthapa/learning_gaction/actions/workflows/github-actions-demo.yml)
