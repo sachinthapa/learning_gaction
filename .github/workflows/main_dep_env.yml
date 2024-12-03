@@ -55,9 +55,35 @@ jobs:
         uses: softprops/action-gh-release@v2
         with: 
           tag_name: v${{ vars.DEV_VERSION }}
+          # The fine-grained token must have at least one of the following permission sets:
+          # "Contents" repository permissions (write)
+          # "Contents" repository permissions (write) and "Workflows" repository permissions (write)
           token: ${{ secrets.DEV_TOKEN }}
           prerelease: true
           draft: true
           name: dev
           files: demo.jar           
-            
+  
+  deploy-prod:
+    needs: [build-and-test]
+    if: github.ref == 'refs/heads/master' 
+    
+    runs-on: ubuntu-latest
+    environment: 
+      name: production
+      url: https://github.com/${{ github.repository }}/releases/tag/v${{ vars.PROD_VERSION }}
+      
+    steps:      
+      - name: Download candidate artifacts
+        uses: actions/download-artifact@v4 
+        with:
+          name: build-artifacts    
+        
+      - name: GH Release
+        uses: softprops/action-gh-release@v2
+        with: 
+          tag_name: v${{ vars.PROD_VERSION }}
+          token: ${{ secrets.PROD_TOKEN }}
+          generate_release_notes: true
+          name: Production
+          files: demo.jar
