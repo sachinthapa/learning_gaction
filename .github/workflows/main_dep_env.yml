@@ -14,11 +14,14 @@ jobs:
         with:
           java-version: '11'
           distribution: 'temurin'
+      - name: Setup gradle
       - uses: gradle/actions/setup-gradle@v3
         with:
           gradle-version: 7.6
-          arguments: build test
-      
+      - name: Run build
+        run: gradle build
+      - name: Run tests
+        run: gradle test      
       # - name: Upload Artifact
       #   uses: actions/upload-artifact@v3
       #   with:
