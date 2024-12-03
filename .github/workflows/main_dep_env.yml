@@ -1,4 +1,6 @@
-name: Deployments example
+name: DeploymentsEXm
+run-name: ${{ github.actor }} is testing out Deployement 🚀
+
 on:
   push:
     branches: [ "master", "dev" ]
@@ -22,9 +24,15 @@ jobs:
       - name: Run build
         run: gradle build
       - name: Run tests
-        run: gradle test      
-      # - name: Upload Artifact
-      #   uses: actions/upload-artifact@v3
-      #   with:
-      #     name: build-artifacts
-      #     path: build/libs
+        run: gradle test
+
+      - run: mkdir hello
+      - run: echo hello > hello/world.txt
+        
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifacts
+          path: hello/world.txt
+     
+       
