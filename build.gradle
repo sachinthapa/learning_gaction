@@ -1,20 +1,23 @@
 plugins {
-    id 'java'
+    id 'application' // <1>
 }
 
-group = 'com.example' // Replace with your package name
-version = '1.0.0'
-
 repositories {
-    mavenCentral()
+    mavenCentral() // <2>
 }
 
 dependencies {
-    // Use JUnit for testing
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+    testImplementation libs.junit.jupiter // <3>
+
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    implementation libs.guava // <4>
 }
 
-tasks.test {
-    useJUnitPlatform()
+application {
+    mainClass = 'demo.App' // <5>
 }
 
+tasks.named('test') {
+    useJUnitPlatform() // <6>
+}
