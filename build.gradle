@@ -1,0 +1,20 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.example' // Replace with your package name
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Use JUnit for testing
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+}
+
+tasks.test {
+    useJUnitPlatform()
+}
+
