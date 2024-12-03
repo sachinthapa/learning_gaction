@@ -21,18 +21,19 @@ jobs:
         uses: gradle/actions/setup-gradle@v3
         with:
           gradle-version: "8.11"
-      - name: Run build
-        run: gradle build
       - name: Run tests
-        run: gradle test
+        run: ./gradlew test
+      - name: Run build
+        run: ./gradlew build
+     
 
-      - run: mkdir hello
-      - run: echo hello > hello/world.txt
+      # - run: mkdir hello
+      # - run: echo hello > hello/world.txt
         
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: build-artifacts
-          path: hello/world.txt
+      # - name: Upload Artifact
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: build-artifacts
+      #     path: hello/world.txt
      
        
