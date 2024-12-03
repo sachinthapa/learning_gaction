@@ -14,13 +14,12 @@ jobs:
         with:
           java-version: '11'
           distribution: 'temurin'
-      
-      - uses: gradle/gradle-build-action@v2
+      - uses: gradle/actions/setup-gradle@v3
         with:
           arguments: build test
       
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: build-artifacts
-          path: build/libs
+      # - name: Upload Artifact
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: build-artifacts
+      #     path: build/libs
