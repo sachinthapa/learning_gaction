@@ -30,10 +30,10 @@ jobs:
       # - run: mkdir hello
       # - run: echo hello > hello/world.txt
         
-      # - name: Upload Artifact
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     name: build-artifacts
-      #     path: hello/world.txt
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifacts
+          path: build/libs
      
        
