@@ -45,7 +45,7 @@ jobs:
    
       - name: Echo cache key 
         run: | 
-           echo ${{ runner.os }}-${{ steps.get-date.outputs.date }}
+           echo ${{ runner.os }}-build-${{ env.cache-name }}
             
       - name: Generate Prime Numbers
         run: |
@@ -57,7 +57,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/prime-dates
-          key: ${{ runner.os }}-${{ steps.get-date.outputs.date }}
+          key: ${{ runner.os }}-build-${{ env.cache-name }}
 
         if: steps.cache-date.outputs.cache-hit != 'true'
       - name: Generate (cached fail)Prime Numbers
