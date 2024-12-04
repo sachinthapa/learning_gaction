@@ -41,21 +41,29 @@ jobs:
 
       # - name: Test
       #   run: go test -v ./...
-        
-      - name: Get Date
-        id: get-date
-        run: |
-          echo "date=$(/bin/date -u "+%Y%m%d")" >> $GITHUB_OUTPUT
-        shell: bash
-        
       - name: Cache date
         id: cache-date
         uses: actions/cache@v3
         with:
-          path: prime-dates
+          path: ~/prime-dates
           key: ${{ runner.os }}-${{ steps.get-date.outputs.date }}
             -${{ hashFiles('**/lockfiles') }}
+   
+      - name: Echo cache key 
+        run: | 
+           echo ${{ runner.os }}-${{ steps.get-date.outputs.date }}
+            -${{ hashFiles('**/lockfiles') }}
+
+        
+            
+      - name: Generate Prime Numbers
+        if: steps.cache-date.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p prime-dates
+          echo "Cached content generated on $(date)" > prime-dates/example.txt
+      
       - if: ${{ steps.cache-date.outputs.cache-hit == 'true' }}
         name: Check for cache hit
         run: |
           echo "Got cache hit on key"
+          cat prime-dates/example.txt
