@@ -1,4 +1,4 @@
-name: Create demo issue 3
+name: Create demo issue (Matrix strategy) 
 run-name: ${{ github.actor }} is testing out matrix strategy 🚀
 
 on:
@@ -6,6 +6,8 @@ on:
   
 jobs: 
   create-new-issue:
+    permissions:
+      issues: write 
     strategy:
       matrix:
         prod: [prod1, prod2]
