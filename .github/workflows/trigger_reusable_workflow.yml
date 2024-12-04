@@ -7,6 +7,8 @@ on:
 
 jobs:
   invoke_create_issue:
+    permissions:
+      issues: write 
     uses: sachinthapa/learning_gaction/.github/workflows/workflow_call_dispatch.yml@master
     with:
       title: "Build Failure Detected"
