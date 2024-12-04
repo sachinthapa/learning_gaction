@@ -53,11 +53,9 @@ jobs:
         run: | 
            echo ${{ runner.os }}-${{ steps.get-date.outputs.date }}
             -${{ hashFiles('**/lockfiles') }}
-
-        
             
-      - name: Generate Prime Numbers
         if: steps.cache-date.outputs.cache-hit != 'true'
+      - name: Generate Prime Numbers
         run: |
           mkdir -p prime-dates
           echo "Cached content generated on $(date)" > prime-dates/example.txt
