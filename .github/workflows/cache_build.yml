@@ -60,14 +60,14 @@ jobs:
           key: ${{ runner.os }}-${{ steps.get-date.outputs.date }}
             -${{ hashFiles('**/lockfiles') }}
 
-      - if: steps.cache-date.outputs.cache-hit != 'true'
+        if: steps.cache-date.outputs.cache-hit != 'true'
       - name: Generate (cached fail)Prime Numbers
         run: |
           mkdir -p prime-dates
           echo "Cached content generated on $(date)" > prime-dates/example.txt
 
-      - if: steps.cache-date.outputs.cache-hit == 'true'
-        name: Check for cache hit
+        if: steps.cache-date.outputs.cache-hit == 'true'
+      - name: Check for cache hit
         run: |
           echo "Got cache hit on key"
           cat prime-dates/example.txt
