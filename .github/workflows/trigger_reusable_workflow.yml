@@ -7,7 +7,7 @@ on:
 
 jobs:
   invoke_create_issue:
-    uses: sachinthapa/learning_gaction/.github/workflows/trigger_reusable_workflow.yml@master
+    uses: sachinthapa/learning_gaction/.github/workflows/workflow_call_dispatch.yml@master
     with:
       title: "Build Failure Detected"
       body: "The build failed during the testing phase. Please investigate."
