@@ -1,0 +1,16 @@
+name: Trigger Reusable Workflow
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  invoke_create_issue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger the Issue Creation Workflow
+        uses: sachinthapa/learning_gaction/.github/workflows/workflow_call_dispatch.yml@master
+        with:
+          title: "Build Failure Detected"
+          body: "The build failed during the testing phase. Please investigate."
