@@ -4,7 +4,7 @@ run-name: ${{ github.actor }} is testing out cache build(Go) 🚀
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
