@@ -59,7 +59,7 @@ jobs:
           mkdir -p prime-dates
           echo "Cached content generated on $(date)" > prime-dates/example.txt
       
-      - if: ${{ steps.cache-date.outputs.cache-hit == 'true' }}
+      - if: steps.cache-date.outputs.cache-hit == 'true'
         name: Check for cache hit
         run: |
           echo "Got cache hit on key"
