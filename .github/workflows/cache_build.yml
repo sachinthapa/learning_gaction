@@ -49,8 +49,8 @@ jobs:
             
       - name: Generate Prime Numbers
         run: |
-          mkdir -p prime-dates
-          echo "Cached content generated on $(date)" > prime-dates/example.txt
+          mkdir -p ~/prime-dates
+          echo "Cached content generated on $(date)" > ~/prime-dates/example.txt
 
       - name: Cache date
         id: cache-date
@@ -63,11 +63,11 @@ jobs:
         if: steps.cache-date.outputs.cache-hit != 'true'
       - name: Generate (cached fail)Prime Numbers
         run: |
-          mkdir -p prime-dates
-          echo "Cached content generated on $(date)" > prime-dates/example.txt
+          mkdir -p ~/prime-dates
+          echo "Cached content generated on $(date)" > ~/prime-dates/example.txt
 
         if: steps.cache-date.outputs.cache-hit == 'true'
       - name: Check for cache hit
         run: |
           echo "Got cache hit on key"
-          cat prime-dates/example.txt
+          cat ~/prime-dates/example.txt
