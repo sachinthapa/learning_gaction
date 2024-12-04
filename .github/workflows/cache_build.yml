@@ -58,7 +58,6 @@ jobs:
         with:
           path: ~/prime-dates
           key: ${{ runner.os }}-${{ steps.get-date.outputs.date }}
-            -${{ hashFiles('**/lockfiles') }}
 
         if: steps.cache-date.outputs.cache-hit != 'true'
       - name: Generate (cached fail)Prime Numbers
