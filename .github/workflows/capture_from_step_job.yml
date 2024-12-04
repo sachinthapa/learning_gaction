@@ -1,4 +1,5 @@
 name: capture from step & job
+run-name: ${{ github.actor }} is testing out capture from steps and job 🚀
 
 on:
   push:
