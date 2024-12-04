@@ -3,7 +3,9 @@ run-name: ${{ github.actor }} is testing out Deployement 🚀
 
 on:
   push:
-    branches: [ "main", "dev" ]
+    # branches: [ "master", "dev" ]
+    branches: [ "main" ]
+
 
 jobs:
   build-and-test:
