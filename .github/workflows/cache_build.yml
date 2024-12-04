@@ -41,6 +41,17 @@ jobs:
 
       # - name: Test
       #   run: go test -v ./...
+
+   
+      - name: Echo cache key 
+        run: | 
+           echo ${{ runner.os }}-${{ steps.get-date.outputs.date }}
+            
+      - name: Generate Prime Numbers
+        run: |
+          mkdir -p prime-dates
+          echo "Cached content generated on $(date)" > prime-dates/example.txt
+
       - name: Cache date
         id: cache-date
         uses: actions/cache@v3
@@ -48,17 +59,13 @@ jobs:
           path: ~/prime-dates
           key: ${{ runner.os }}-${{ steps.get-date.outputs.date }}
             -${{ hashFiles('**/lockfiles') }}
-   
-      - name: Echo cache key 
-        run: | 
-           echo ${{ runner.os }}-${{ steps.get-date.outputs.date }}
-            
-        if: steps.cache-date.outputs.cache-hit != 'true'
-      - name: Generate Prime Numbers
+
+      - if: steps.cache-date.outputs.cache-hit != 'true'
+      - name: Generate (cached fail)Prime Numbers
         run: |
           mkdir -p prime-dates
           echo "Cached content generated on $(date)" > prime-dates/example.txt
-      
+
       - if: steps.cache-date.outputs.cache-hit == 'true'
         name: Check for cache hit
         run: |
