@@ -1,4 +1,5 @@
 name: Trigger Reusable Workflow
+run-name: ${{ github.actor }} is testing out Reusable Workflow 🚀
 
 on:
   push:
