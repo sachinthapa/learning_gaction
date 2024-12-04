@@ -1,6 +1,7 @@
 # This is a reusable workflow for creating an issue
 
 name: create-failure-issue
+run-name: ${{ github.actor }} is testing out create-failure-issue 🚀
 
 # Controls when the workflow will run
 
