@@ -1,0 +1,16 @@
+name: Trigger Reusable Workflow
+run-name: ${{ github.actor }} is testing out Reusable Workflow 🚀
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  invoke_create_issue:
+    permissions:
+      issues: write 
+    uses: sachinthapa/learning_gaction/.github/workflows/workflow_call_dispatch.yml@master
+    with:
+      title: "Build Failure Detected"
+      body: "The build failed during the testing phase. Please investigate."
