@@ -52,7 +52,6 @@ jobs:
       - name: Echo cache key 
         run: | 
            echo ${{ runner.os }}-${{ steps.get-date.outputs.date }}
-            -${{ hashFiles('**/lockfiles') }}
             
         if: steps.cache-date.outputs.cache-hit != 'true'
       - name: Generate Prime Numbers
