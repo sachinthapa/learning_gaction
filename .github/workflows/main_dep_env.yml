@@ -54,6 +54,9 @@ jobs:
         uses: actions/download-artifact@v4    
         with:
           name: build-artifacts 
+      - shell: bash
+        run: |
+          java -jar demo.jar
     
       - name: release to dev
         uses: softprops/action-gh-release@v2
@@ -82,7 +85,9 @@ jobs:
         uses: actions/download-artifact@v4 
         with:
           name: build-artifacts    
-        
+      - shell: bash
+        run: |
+          java -jar demo.jar
       - name: GH Release
         uses: softprops/action-gh-release@v2
         with: 
