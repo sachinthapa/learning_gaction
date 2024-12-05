@@ -1,0 +1,13 @@
+name: Dealing Untrusted input
+run-name: ${{ github.actor }} is testing Dealing Untrusted input 🚀
+
+on:
+  push:
+    branches: [ "main" ]
+    
+jobs:
+  process:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - run: echo ${{ github.event.head_commit.message }}
