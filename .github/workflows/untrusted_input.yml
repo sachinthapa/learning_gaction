@@ -11,9 +11,9 @@ jobs:
     
     steps:
       - name: Setup Intermediate Variables
-      - env:
+        env:
           COMMIT_DATA_VALUE: ${{ github.event.head_commit.message }}
           SECRET_DATA_VALUE: ${{ secrets.SIDEMO_SECRET }}
-      - run: |
+        run: |
           echo $COMMIT_DATA_VALUE
           echo $SECRET_DATA_VALUE
