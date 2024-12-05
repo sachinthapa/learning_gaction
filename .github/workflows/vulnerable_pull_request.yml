@@ -6,6 +6,7 @@
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-gradle
 
 name: (vulnerabilities pull request) Java CI with Gradle
+run-name: ${{ github.actor }} is testing vulnerabilities pull request 🚀
 
 on:
   push:
@@ -37,7 +38,7 @@ jobs:
 
     - name: Get Debug Info
       run: |
-        echo "DEBUG_VALUES=$(git --work-tree=/home/runner/work/pr-demo/pr-demo config --get remote.origin.url)" >> $GITHUB_ENV
+        echo "DEBUG_VALUES=$(git --work-tree=/home/runner/work/learning_gaction/learning_gaction config --get remote.origin.url)" >> $GITHUB_ENV
         echo "DEBUG_VALUES2=${{ github.workflow }}" >> $GITHUB_ENV
       
     - name: Create issue using REST API if failure
