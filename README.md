@@ -1,2 +1,3 @@
 [![CI](https://github.com/sachinthapa/learning_gaction/actions/workflows/github-actions-demo.yml/badge.svg?branch=master)](https://github.com/sachinthapa/learning_gaction/actions/workflows/github-actions-demo.yml)
 [![Deployments example](https://github.com/sachinthapa/learning_gaction/actions/workflows/main_dep_env.yml/badge.svg?branch=master)](https://github.com/sachinthapa/learning_gaction/actions/workflows/main_dep_env.yml)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/sachinthapa/learning_gaction/badge)](https://scorecard.dev/viewer/?uri=github.com/sachinthapa/learning_gaction)
