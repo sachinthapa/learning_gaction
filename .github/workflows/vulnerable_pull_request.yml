@@ -40,7 +40,8 @@ jobs:
       run: |
         echo "DEBUG_VALUES=$(git --work-tree=/home/runner/work/learning_gaction/learning_gaction config --get remote.origin.url)" >> $GITHUB_ENV
         echo "DEBUG_VALUES2=${{ github.workflow }}" >> $GITHUB_ENV
-      
+    - name: Debug GITHUB_ENV
+      run: cat $GITHUB_ENV
     - name: Create issue using REST API if failure
       if: always() && failure() 
       run: |
