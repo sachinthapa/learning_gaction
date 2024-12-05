@@ -46,8 +46,8 @@ jobs:
     - name: Debug GITHUB_ENV
       run: cat $GITHUB_ENV
     - name: Create issue using REST API if failure
-      if: always() && failure() 
-      # if: always()
+      # if: always() && failure() 
+      if: always()
       run: |
         curl --request POST \
           --url https://api.github.com/repos/${{ github.repository }}/issues \
