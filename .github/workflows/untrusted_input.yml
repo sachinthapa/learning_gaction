@@ -10,5 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - run: echo ${{ github.event.head_commit.message }}
-      - run: echo ${{ secrets.SIDEMO_SECRET }}
+      - env:
+          COMMIT_DATA_VALUE: ${{ github.event.head_commit.message }}
+          SECRET_DATA_VALUE: ${{ secrets.SIDEMO_SECRET }}
+      - run: echo $COMMIT_DATA_VALUE
+      - run: echo $SECRET_DATA_VALUE
