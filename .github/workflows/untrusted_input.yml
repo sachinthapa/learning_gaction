@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} is testing Dealing Untrusted input 🚀
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "main" ]
     
 jobs:
   process:
