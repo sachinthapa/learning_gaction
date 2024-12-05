@@ -3,6 +3,8 @@ run-name: ${{ github.actor }} is testing out matrix strategy 🚀
 
 on:
   push:
+    branches:
+      - main
   
 jobs: 
   create-new-issue:
