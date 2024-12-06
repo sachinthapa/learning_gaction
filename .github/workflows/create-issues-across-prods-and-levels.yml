@@ -1,0 +1,25 @@
+name: Create issues across prods and levels
+run-name: ${{ github.actor }} is Create issues across prods and levels 🚀
+
+on:
+  push:
+    branches:
+      -master
+  
+jobs: 
+  create-new-issue:
+    strategy:
+      matrix:
+        prod: [prod1, prod2]
+        level: [dev, stage, rel]
+    uses: sachinthapa/learning_gaction/.github/workflows/create-issue-via-gh.yml@master
+    secrets: inherit
+    with:
+      title: "${{ matrix.prod}} issue"
+      body: "Update for ${{ matrix.level }}"
+
+  report-issue-number:
+    runs-on: ubuntu-latest
+    needs: create-new-issue
+    steps:
+      - run: echo ${{ needs.create-new-issue.outputs.issue-number }}
