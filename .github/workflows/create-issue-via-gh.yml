@@ -36,7 +36,7 @@ jobs:
           --title "${{ inputs.title }}" \
           --body "${{ inputs.body }}" \
           --repo ${{ github.event.repository.url }}`
-          echo "inum=$response | rev | cut -d'/' -f 1" >> $GITHUB_OUTPUT
+          echo "inum=$response | rev | cut -d'/' -f 1" | rev >> $GITHUB_OUTPUT
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
