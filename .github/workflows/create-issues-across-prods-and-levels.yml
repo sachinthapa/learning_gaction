@@ -11,6 +11,7 @@ jobs:
     strategy:
       matrix:
         prod: [prod1]
+        level: [dev]
         # level: [dev, stage, rel]
     uses: sachinthapa/learning_gaction/.github/workflows/create-issue-via-gh.yml@master
     permissions:
