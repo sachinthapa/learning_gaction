@@ -10,9 +10,9 @@ run-name: ${{ github.actor }} is testing vulnerabilities pull request 🚀
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "main" ]
 
 permissions:
   contents: read
