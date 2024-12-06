@@ -1,5 +1,5 @@
 name: Create issues across prods and levels
-run-name: ${{ github.actor }} is Create issues across prods and levels 🚀
+run-name: ${{ github.actor }} is Creating issues across prods and levels 🚀
 
 on:
   push:
