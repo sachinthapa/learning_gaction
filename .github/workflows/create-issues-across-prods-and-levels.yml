@@ -13,6 +13,8 @@ jobs:
         prod: [prod1, prod2]
         level: [dev, stage, rel]
     uses: sachinthapa/learning_gaction/.github/workflows/create-issue-via-gh.yml@master
+    permissions:
+      issues: write
     secrets: inherit
     with:
       title: "${{ matrix.prod}} issue"
