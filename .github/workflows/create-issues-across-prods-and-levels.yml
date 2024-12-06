@@ -10,8 +10,8 @@ jobs:
   create-new-issue:
     strategy:
       matrix:
-        prod: [prod1, prod2]
-        level: [dev, stage, rel]
+        prod: [prod1]
+        # level: [dev, stage, rel]
     uses: sachinthapa/learning_gaction/.github/workflows/create-issue-via-gh.yml@master
     permissions:
       issues: write
