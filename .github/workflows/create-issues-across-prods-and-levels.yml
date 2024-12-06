@@ -4,7 +4,7 @@ run-name: ${{ github.actor }} is Creating issues across prods and levels 🚀
 on:
   push:
     branches:
-      -master
+      - master
   
 jobs: 
   create-new-issue:
